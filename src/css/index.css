@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: black;
+}
+@media only screen and (max-width: 900px) {
+  * {
+    font-size: 90%;
+  }
+}
+
+#nav {
+  margin-top: 5px;
+}
+#nav .navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 4px solid #000000;
+}
+#nav .navbar h1 {
+  color: #ffc400;
+  text-shadow: 1px 1px 2px black;
+}
+#nav .navbar .links {
+  margin-left: auto;
+}
+#nav .navbar a {
+  font-weight: 1000;
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+#nav .navbar a:hover {
+  color: #ffffff;
+  border-radius: 4px;
+  background-color: #ffc400;
+}
+
+.container {
+  margin: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  border: 3px solid #002d80;
+  border-radius: 10px;
+}
+.container header {
+  margin: 1rem;
+}
+.container .form {
+  padding: 1rem;
+  margin: 1rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  background: linear-gradient(#fff4a0, #c1e3fd);
+  border-radius: 5rem;
+}
+.container .form .form-control {
+  font-weight: bolder;
+  margin: 0.5rem;
+}
+.container .form .form-control::after {
+  color: green;
+  font-size: 0.6rem;
+  margin-left: 5px;
+  content: "OK";
+}
+.container .form .form-control.alert::after {
+  font-size: 0.6rem;
+  margin-left: 5px;
+  content: "❌";
+}
+.container .form .form-control label {
+  color: #01018f;
+  margin: 0.5rem;
+}
+.container .form .form-control__check label {
+  font-weight: bolder;
+  margin: 0.5rem;
+  color: #7c0000;
+}
+.container .list {
+  padding: 10px;
+}
+.container .list .list-item {
+  margin: 1.2rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 4px solid #ffe180;
+}
+.container .list .list-item:hover {
+  border: 4px solid #ffc400;
+}
+.container .list .list-item.important {
+  border: 1px solid black;
+  border-right: 20px solid red;
+  background-color: white;
+}
+.container .btn {
+  margin: 5px;
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+}
+.container .btn__form {
+  border: 1px solid black;
+  background-color: #ffc400;
+  color: white;
+}
+.container .btn__form:hover {
+  font-size: 1rem;
+}
+.container .btn__primary {
+  color: white;
+  background-color: #003300;
+}
+.container .btn__primary:hover {
+  background-color: #008300;
+}
+.container .btn__danger {
+  color: white;
+  background-color: #a00a28;
+}
+.container .btn__danger:hover {
+  background-color: #eb3b5e;
+}
+
+/*# sourceMappingURL=index.css.map */

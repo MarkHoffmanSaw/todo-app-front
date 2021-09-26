@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: rgb(0, 0, 0);
+  text-align: center;
+
+  // For mobile version (<900px)
+  @media only screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+}

@@ -1,0 +1,122 @@
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  border: 3px solid rgb(0, 45, 128);
+  border-radius: 10px;
+  background-color: #dbf0ff;
+
+  header {
+    margin: 1rem;
+  }
+
+  h3 {
+    margin: 1rem;
+  }
+
+  // ToDo form styles
+  .form {
+    margin-left: 25%;
+    margin-right: 25%;
+
+    .form-control {
+      font-weight: bolder;
+      margin: 0.5rem;
+
+      input {
+        text-align: start;
+      }
+
+      &::after {
+        color: green;
+        font-size: 0.6rem;
+        margin-left: 5px;
+        content: "OK";
+      }
+
+      &.alert::after {
+        font-size: 0.6rem;
+        margin-left: 5px;
+        content: "❌";
+      }
+
+      label {
+        color: rgb(1, 1, 143);
+        margin: 0.5rem;
+      }
+
+      &__check label {
+        font-weight: bolder;
+        margin: 0.5rem;
+        color: rgb(124, 0, 0);
+      }
+    }
+  }
+
+  // ToDo list styles
+  .list {
+    padding: 10px;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 15rem 15rem 15rem;
+
+    .list-item {
+      background-color: white;
+      margin: 1.2rem;
+      padding: 5px;
+      border-radius: 10px;
+      border: 4px solid #ffe180;
+
+      &:hover {
+        border: 4px solid #ffc400;
+      }
+
+      &.important {
+        border: 1px solid rgb(75, 75, 75);
+        border-right: 20px solid rgb(255, 97, 97);
+        background-color: white;
+
+        &:hover {
+          border: 1px solid black;
+          border-right: 20px solid rgb(255, 0, 0);
+        }
+      }
+    }
+  }
+
+  // Buttons styles
+  .btn {
+    margin: 5px;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+
+    &__form {
+      border: 1px solid black;
+      background-color: #ffc400;
+      color: white;
+
+      &:hover {
+        font-size: 1rem;
+      }
+    }
+
+    &__primary {
+      color: white;
+      background-color: rgb(0, 51, 0);
+
+      &:hover {
+        background-color: rgb(0, 131, 0);
+      }
+    }
+
+    &__danger {
+      color: white;
+      background-color: rgb(160, 10, 40);
+
+      &:hover {
+        background-color: rgb(235, 59, 94);
+      }
+    }
+  }
+}
