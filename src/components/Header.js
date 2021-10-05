@@ -1,7 +1,7 @@
 const Header = ({ btnTitle, onToggle }) => {
   return (
     <header>
-      <h1>Current tasks list</h1>
+      <h1>Current projects list</h1>
       <button className="btn btn__form" onClick={onToggle}>
         {btnTitle}
       </button>

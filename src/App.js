@@ -7,8 +7,8 @@ import Navbar from "./components/navigation/Navbar.js";
 
 // App
 import Header from "./components/Header.js";
-import AddTask from "./components/AddTask.js";
-import Tasks from "./components/Tasks.js";
+import AddProject from "./components/projects/AddProject.js";
+import Projects from "./components/projects/Projects.js";
 import Footer from "./components/Footer.js";
 
 // Directions to links
@@ -18,46 +18,51 @@ import Creators from "./components/links/Creators.js";
 
 function App() {
   const [formStatus, setFormStatus] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   // 1. New async function inside the useEffect hook [!]
   useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks();
-      setTasks(tasksFromServer);
+    const getProjects = async () => {
+      const projectsFromServer = await fetchProjects();
+      setProjects(projectsFromServer);
     };
 
-    getTasks(); // 3. Call the function after fetching
+    getProjects(); // 3. Call the function after fetching
   }, []);
 
   // 2. Fetch data from local server
-  const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+  const fetchProjects = async () => {
+    const res = await fetch("http://localhost:5000/projects");
     const data = await res.json();
 
     return data; // Array all tasks
   };
 
-  const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+  const fetchProject = async (id) => {
+    const res = await fetch(`http://localhost:5000/projects/${id}`);
     const data = await res.json();
 
-    return data; // Array task[id]
+    return data; // Array project[id]
   };
 
-  // Add a task
-  const addTask = async (task) => {
-    if (task.title && task.startDate && task.endDate && task.description) {
-      const res = await fetch("http://localhost:5000/tasks", {
+  // Add a project
+  const addProject = async (project) => {
+    if (
+      project.title &&
+      project.startDate &&
+      project.endDate &&
+      project.description
+    ) {
+      const res = await fetch("http://localhost:5000/projects", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(task),
+        body: JSON.stringify(project),
       });
 
       const data = await res.json();
-      setTasks([...tasks, data]);
+      setProjects([...projects, data]);
     }
 
     // *** For UI only ***
@@ -68,32 +73,37 @@ function App() {
     // }
   };
 
-  // Delete a task
-  const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
+  // Delete a project
+  const deleteProject = async (id) => {
+    await fetch(`http://localhost:5000/projects/${id}`, { method: "DELETE" });
 
-    setTasks(tasks.filter((task) => task.id !== id));
+    setProjects(projects.filter((project) => project.id !== id));
   };
 
   // Toggle important
   const toggleImportant = async (id) => {
-    const taskToToggle = await fetchTask(id);
-    const updTask = { ...taskToToggle, isImportant: !taskToToggle.isImportant };
+    const projectToToggle = await fetchProject(id);
+    const updProject = {
+      ...projectToToggle,
+      isImportant: !projectToToggle.isImportant,
+    };
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`http://localhost:5000/projects/${id}`, {
       // upd on the local server
       method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(updTask),
+      body: JSON.stringify(updProject),
     });
 
     const data = await res.json();
 
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, isImportant: data.isImportant } : task
+    setProjects(
+      projects.map((project) =>
+        project.id === id
+          ? { ...project, isImportant: data.isImportant }
+          : project
       )
     );
   };
@@ -116,18 +126,20 @@ function App() {
             <div className="container">
               <Header
                 onToggle={() => setFormStatus(!formStatus)}
-                btnTitle={formStatus ? "Close the form" : "Create a new task"}
+                btnTitle={
+                  formStatus ? "Close the form" : "Create a new project"
+                }
               />
-              {formStatus && <AddTask onAdd={addTask} />}
+              {formStatus && <AddProject onAdd={addProject} />}
               <hr />
-              {tasks.length > 0 ? (
-                <Tasks
-                  tasks={tasks}
-                  onDelete={deleteTask}
+              {projects.length > 0 ? (
+                <Projects
+                  projects={projects}
+                  onDelete={deleteProject}
                   onToggle={toggleImportant}
                 />
               ) : (
-                <h3>No active tasks</h3>
+                <h3>No active projects</h3>
               )}
               <Footer />
             </div>

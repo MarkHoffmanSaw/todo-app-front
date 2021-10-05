@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddTask = ({ onAdd }) => {
+const AddProject = ({ onAdd }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState(""); // startDate
   const [endDate, setEndDate] = useState(""); // endDate
@@ -25,7 +25,7 @@ const AddTask = ({ onAdd }) => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <div className={title ? "form-control" : "form-control alert"}>
-        <label>Task name</label>
+        <label>Project name</label>
         <input
           type="text"
           placeholder="enter a task"
@@ -73,4 +73,4 @@ const AddTask = ({ onAdd }) => {
     </form>
   );
 };
-export default AddTask;
+export default AddProject;
