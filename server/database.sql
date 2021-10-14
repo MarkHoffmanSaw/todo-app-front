@@ -1,6 +1,15 @@
-CREATE DATABASE perntodo;
+CREATE DATABASE todo_db;
 
-CREATE TABLE todo(
-    todo_id SERIAL PRIMARY KEY,
-    description VARCHAR(255)
+
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    registration_date VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE projects(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    user_id INTEGER REFERENCES users(id)
 );
