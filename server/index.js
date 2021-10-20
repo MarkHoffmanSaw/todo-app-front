@@ -11,15 +11,15 @@ app.use(express.json());
 
 // Create a project
 
-app.post("/todos", async (req, res) => {
+app.post("/projects", async (req, res) => {
   try {
     const { description } = req.body;
-    const newTodo = await pool.query(
-      "INSERT INTO todo (description) VALUES($1)",
+    const newProject = await pool.query(
+      "INSERT INTO projects (description) VALUES($1)",
       [description]
     );
 
-    res.json(newTodo);
+    res.json(newProject);
   } catch (err) {
     console.error(err.message);
   }

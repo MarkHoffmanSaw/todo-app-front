@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // Navigation
 import Navbar from "./components/navigation/Navbar.js";
 
+// Registation & verification
+import Login from "./components/registration/Login.js";
+import Signup from "./components/registration/Signup.js";
+
 // App
 import Header from "./components/Header.js";
 import AddProject from "./components/projects/AddProject.js";
@@ -115,6 +119,14 @@ function App() {
       </div>
 
       <Route path="/" exact render={Main} />
+
+      {/* SING UP */}
+
+      <Route path="/signup" component={Signup} />
+
+      {/* LOG IN */}
+
+      <Route path="/login" component={Login} />
 
       {/* APP */}
 
