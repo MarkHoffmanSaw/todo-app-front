@@ -27,7 +27,7 @@ const Login = ({ onContinueUser }) => {
         <div>
           <label>Password: </label>
           <input
-            type="date"
+            type="text"
             placeholder="***********"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
