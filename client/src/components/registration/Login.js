@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// ДОДЕЛАТЬ ВХОД/РЕГИСТРАЦИЮ (пока просто шаблон)
+
 const Login = ({ onContinueUser }) => {
   const [userNameOrEmail, setUserNameOrEmail] = useState("");
   const [password, setPassword] = useState("");

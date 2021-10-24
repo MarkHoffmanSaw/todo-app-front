@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// ДОДЕЛАТЬ ВХОД/РЕГИСТРАЦИЮ (пока просто шаблон)
+
 const Signup = ({ onAddUser }) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
