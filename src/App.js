@@ -36,14 +36,21 @@ function App() {
 
   // 2. Fetch data from local server
   const fetchProjects = async () => {
-    const res = await fetch("http://localhost:5000/projects");
-    const data = await res.json();
+    console.log("start fetching");
+    try {
+      const res = await fetch("https://todo-server:5000/api/project");
+      console.log(res);
+      const data = await res.json();
+      console.log(data);
 
-    return data; // Array all tasks
+      return data; // Array all projects
+    } catch (error) {
+      console.log("ERROR: ", error);
+    }
   };
 
   const fetchProject = async (id) => {
-    const res = await fetch(`http://localhost:5000/projects/${id}`);
+    const res = await fetch(`http://todo-server:5000/api/project/${id}`);
     const data = await res.json();
 
     return data; // Array project[id]
@@ -57,7 +64,7 @@ function App() {
       project.endDate &&
       project.description
     ) {
-      const res = await fetch("http://localhost:5000/projects", {
+      const res = await fetch("http://todo-server:5000/project", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -68,18 +75,11 @@ function App() {
       const data = await res.json();
       setProjects([...projects, data]);
     }
-
-    // *** For UI only (without connection with a server) ***
-    // if (task.title && task.startDate && task.endDate && task.description) {
-    //   const id = Math.floor(Math.random() * 10000) + 1;
-    //   const newTask = { id, ...task };
-    //   setTasks([...tasks, newTask]);
-    // }
   };
 
   // Delete a project
   const deleteProject = async (id) => {
-    await fetch(`http://localhost:5000/projects/${id}`, { method: "DELETE" });
+    await fetch(`http://todo-server:5000/project/${id}`, { method: "DELETE" });
 
     setProjects(projects.filter((project) => project.id !== id));
   };

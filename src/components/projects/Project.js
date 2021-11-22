@@ -2,7 +2,7 @@ import Tasks from "./tasks/Tasks";
 import { useState } from "react";
 
 const Project = ({ project, onDelete, onToggle }) => {
-  let [onDetails, setOnDetails] = useState(false);
+  const [onDetails, setOnDetails] = useState(false);
 
   return (
     <div
@@ -16,6 +16,7 @@ const Project = ({ project, onDelete, onToggle }) => {
       <h5>End: {project.endDate}</h5>
       <p>{project.description}</p>
 
+      {/* TASK */}
       <button
         className="btn btn__primary"
         onClick={() => setOnDetails(!onDetails)}
@@ -23,6 +24,8 @@ const Project = ({ project, onDelete, onToggle }) => {
         Details
       </button>
       {onDetails && <Tasks project={project} />}
+      {/* /////////////////////// */}
+
       <button className="btn btn__danger" onClick={() => onDelete(project.id)}>
         Delete
       </button>
