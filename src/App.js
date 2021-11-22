@@ -22,7 +22,7 @@ import Creators from "./components/links/Creators.js";
 
 function App() {
   const [formStatus, setFormStatus] = useState(false);
-  const [projects, setProjects] = useState("");
+  const [projects, setProjects] = useState([]);
 
   // 1. New async function inside the useEffect hook [!]
   useEffect(() => {
