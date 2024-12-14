@@ -38,7 +38,7 @@ function App() {
   const fetchProjects = async () => {
     console.log("start fetching");
     try {
-      const res = await fetch("https://todo-server:5000/api/project");
+      const res = await fetch("http://todo-server:5000/api/project");
       console.log(res);
       const data = await res.json();
       console.log(data);
